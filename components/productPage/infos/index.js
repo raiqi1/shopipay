@@ -115,6 +115,11 @@ export default function Infos({ product, setActiveImg }) {
       <DialogModal />
       <div className={styles.infos__container}>
         <h1 className={styles.infos__name}>{product.name}</h1>
+        <Link
+          href={`/shop/${product.shopId}`}
+        >
+          <p className={styles.infos__desc} style={{cursor:"pointer"}}>{product.shopId}</p>
+        </Link>
         <h2 className={styles.infos__sku}>{product.sku}</h2>
         <div className={styles.infos__rating}>
           <Rating

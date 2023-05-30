@@ -102,7 +102,7 @@ export default function Shipping({ user, addresses, setAddresses, profile }) {
         </div>
       )}
       <div className={styles.addresses}>
-        {addresses.map((address) => (
+        {addresses?.map((address) => (
           <div style={{ position: "relative" }}>
             <div
               className={styles.address__delete}

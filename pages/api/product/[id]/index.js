@@ -10,6 +10,7 @@ handler.get(async (req, res) => {
     const style = req.query.style || 0;
     const size = req.query.size || 0;
     const product = await Product.findById(id).lean();
+    // console.log("produk", product);
     let discount = product.subProducts[style].discount;
     let priceBefore = product.subProducts[style].sizes[size].price;
     let price = discount ? priceBefore - priceBefore / discount : priceBefore;
@@ -31,10 +32,10 @@ handler.get(async (req, res) => {
       price,
       priceBefore,
       quantity: product.subProducts[style].sizes[size].qty,
+      shopId:product.shopId
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 });
-
 export default handler;

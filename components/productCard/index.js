@@ -5,6 +5,7 @@ import ProductSwiper from "./ProductSwiper";
 import styles from "./styles.module.scss";
 
 export default function ProductCard({ product }) {
+  console.log("produck yg ada di slug",product)
   const [active, setActive] = useState(0);
   const [images, setImages] = useState(product.subProducts[active]?.images);
   const [prices, setPrices] = useState(

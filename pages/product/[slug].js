@@ -59,6 +59,7 @@ export async function getServerSideProps(context) {
     .populate({ path: "subCategories", model: SubCategory })
     .populate({ path: "reviews.reviewBy", model: User })
     .lean();
+  console.log("produk",product)
   let subProduct = product.subProducts[style];
   let prices = subProduct.sizes
     .map((s) => {
@@ -139,6 +140,8 @@ export async function getServerSideProps(context) {
   }
   db.disconnectDb();
   console.log("related", related);
+  console.log("product terbaru", product);
+ 
   return {
     props: {
       product: JSON.parse(JSON.stringify(newProduct)),
